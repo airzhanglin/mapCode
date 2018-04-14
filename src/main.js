@@ -19,7 +19,7 @@ Vue.use(util);
 // 初始化vue-amap
 VueAMap.initAMapApiLoader({
   // 高德的key
-  key: '5a56c9f0200552fc3d02f25e387f9bdc',
+  key: '',
   // 插件集合
   plugin: ['AMap.Autocomplete', 'AMap.PlaceSearch', 'AMap.Scale', 'AMap.OverView', 'AMap.ToolBar', 'AMap.MapType', 'AMap.PolyEditor', 'AMap.CircleEditor','AMap.Geocoder'],
   uiVersion: '1.0' // 版本号
