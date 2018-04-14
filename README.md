@@ -5,7 +5,7 @@
 ## Build Setup
 
 #### 高德地图key的问题
-在mainc.js中的key更换你自己的key即可；
+在main.js中的key更换你自己的key即可；
 
 效果请点击[demo](http://www.zhanglin168.cn/map/index.html);目前还存在许多bug,也请各位大神指点一二，谢谢。
 ``` bash
