@@ -1,0 +1,33 @@
+    @mixin wh($w, $h) {
+      width: $w;
+      height: $h;
+    }
+    @mixin font-dpr($font-size){
+        font-size: $font-size;
+    
+        [data-dpr="2"] & {
+            font-size: $font-size * 2;
+        }
+    
+        [data-dpr="3"] & {
+            font-size: $font-size * 3;
+        }
+    }
+    @mixin px2rem($property, $px-values, $baseline-px:16px, $support-for-ie:false) {
+      $baseline-rem: $baseline-px / 1rem * 1; 
+      @if $support-for-ie {
+        #{$property}: $px-values;
+      }
+      @if type-of($px-values)=="number" {
+        #{$property}: $px-values / $baseline-rem;
+      }
+      @else {
+        $rem-values: ();
+        @each $value in $px-values {
+          @if $value==0 or type-of($value) !="number" {
+            $rem-values: append($rem-values, $value / $baseline-rem);
+          }
+        }
+        #{$property}: $rem-values;
+      }
+    }

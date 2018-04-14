@@ -1,0 +1,29 @@
+@import 'mixins.scss';
+@import 'parameters.scss';
+body,
+html,
+#container {
+    height: 100%;
+    margin: 0px;
+    position: relative;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.slide-enter-active, .slide-leave-active {
+    transition: all .3s;
+    -webkit-transition: all .3s;
+  }
+  .slide-enter, .slide-leave-to {
+    transform: translate3d(100%, 0, 0);
+    -webkit-transform: translate3d(100%, 0, 0);
+  }
+.btn-ok {
+  flex: 0 0 50px;
+  background: $enclosure-color;
+  border-color: $enclosure-color;
+  border-radius: 5px;
+  color: #fff;
+}
