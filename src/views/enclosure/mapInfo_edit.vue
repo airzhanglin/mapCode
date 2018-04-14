@@ -206,7 +206,7 @@
                 this.Indicator.close();
                 this.toast("创建围栏成功");
                 setTimeout(() => {
-                  this.$router.replace({path: "/enclosure"}); //回到围栏列表页
+                  this.$router.replace({path: "/"}); //回到围栏列表页
                 }, 1500);
               }
             })

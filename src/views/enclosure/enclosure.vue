@@ -5,7 +5,7 @@
     </mt-header>
     <div id="contaner">
       <template v-if="list.length!=0">
- <mt-cell-swipe v-for="(item,index) in list" :key="item.gid" :title="item.name"  :label="item.alert_condition=='0'?'进围栏报警':'离开栏报警'" :to="`/editMap?gid=${item.gid}&id=${item.id}`"
+ <mt-cell-swipe v-for="(item,index) in list" :key="item.gid" :title="item.name"  :label="item.alert_condition=='enter'?'进围栏报警':'离开栏报警'" :to="`/editMap?gid=${item.gid}&id=${item.id}`"
          :right="[
     {
       content: '删除',
@@ -89,6 +89,7 @@ export default {
             .then(res => {
               if (res.data.data.message == "成功") {
                 // this.deleteServer(item);
+                this.getdata();
               }else{
                 this.toast("操作失败");
               }

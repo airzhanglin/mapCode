@@ -89,7 +89,7 @@ module.exports = {
     tls: 'empty',
     child_process: 'empty'
   },
-  externals: {
-    'AMap': 'AMap'
-  }
+  // externals: {
+  //   'AMap': 'AMap'
+  // }
 }
