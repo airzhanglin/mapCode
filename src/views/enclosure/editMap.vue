@@ -4,6 +4,7 @@
      <mt-button icon="back" @click="goback" slot="left"></mt-button>
      <span slot="right" @click="sheetVisible=true">围栏类型</span>
     </mt-header>
+    <!-- 地图容器container -->
     <div id="container" tabindex="0"></div>
     <div class="drag-body" v-show="drawType==0">
       <div class="drag">
@@ -54,6 +55,7 @@ export default {
   },
   mounted() {
     let _this = this;
+    //创建地图对象，并把对象复制给map。
     this.map = new AMap.Map("container", {
       //创建地图
       resizeEnable: true,
@@ -74,6 +76,7 @@ export default {
       });
     }
     postionMark = this.map;
+    //高德地图绑定点击事件
     this.map.on("click", res => {
       let data = { Lng: res.lnglat.getLng(), lat: res.lnglat.getLat() };
       this.mapClk(data);
@@ -83,7 +86,7 @@ export default {
     getdata() {
       this.isfirstLoding = true;
       this.$http
-        .get("http://restapi.amap.com/v4/geofence/meta", {
+        .get("https://restapi.amap.com/v4/geofence/meta", {
           params: {
             key: this.mapKey,
             gid: this.$route.query.gid,

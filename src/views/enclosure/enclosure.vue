@@ -53,13 +53,13 @@ export default {
     }
   },
   methods: {
-    gopage(){
+    gopage(){//页面跳转
       this.$router.push({ path: 'editMap' })
     },
     getdata() {
       //获取列表数据
       this.$http
-        .get(`http://restapi.amap.com/v4/geofence/meta`, {
+        .get(`https://restapi.amap.com/v4/geofence/meta`, {
           params: {
             key:this.mapKey
           }
@@ -79,13 +79,12 @@ export default {
         });
     },
     deletes(item) {
-      console.log(item);
       //删除操作
       this.messageBox
         .confirm("确定执行此操作?")
         .then(action => {
           this.$http
-            .post(`http://restapi.amap.com/v4/geofence/meta?key=${this.mapKey}&gid=${item.gid}&method=delete`)
+            .post(`https://restapi.amap.com/v4/geofence/meta?key=${this.mapKey}&gid=${item.gid}&method=delete`)
             .then(res => {
               if (res.data.data.message == "成功") {
                 // this.deleteServer(item);

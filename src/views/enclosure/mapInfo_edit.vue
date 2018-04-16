@@ -109,18 +109,15 @@
             //如果路由存在该gid说明为更新围栏
             this.$http
               .post(
-                `http://restapi.amap.com/v4/geofence/meta?key=${this
+                `https://restapi.amap.com/v4/geofence/meta?key=${this
                   .mapKey}&gid=${this.$route.query.gid}&method=patch`,
                 dataJosn
               )
               .then(res => {
-                // if (res.data.data.message == "成功") {
-                //   console.log(res.data.data.message)
-                //   this.subServer(dataJosn, res.data.data);
-                // } else {
-                //   this.Indicator.close();
-                // }
-                 this.Indicator.close();
+                  this.toast('更新围栏成功')
+                  setTimeout(() => {
+                  this.$router.replace({path: "/"}); //回到围栏列表页
+                }, 1500);
               })
               .catch(err => {
                 this.toast("更新围栏失败");
@@ -129,7 +126,7 @@
             //新建围栏
             this.$http
               .post(
-                `http://restapi.amap.com/v4/geofence/meta?key=${this.mapKey}`,
+                `https://restapi.amap.com/v4/geofence/meta?key=${this.mapKey}`,
                 dataJosn
               )
               .then(res => {
@@ -137,7 +134,7 @@
                   // this.subServer(dataJosn, res.data.data);
                   this.toast('创建围栏成功')
                   setTimeout(() => {
-                  this.$router.replace({path: "/enclosure"}); //回到围栏列表页
+                  this.$router.replace({path: "/"}); //回到围栏列表页
                 }, 1500);
                 } else {
                   this.Indicator.close();
